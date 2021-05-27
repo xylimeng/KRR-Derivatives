@@ -1,6 +1,7 @@
 # KRR-Derivatives
 Using Plug-in Kernel ridge regression estimators to estimate function derivatives 
 
+Define the true regression function and its derivative.
 ```R
 library(Rcpp)
 library(RandomFieldsUtils)
@@ -18,7 +19,10 @@ f0_prime = function(x){
   #-2*exp(-4*(1-2*x)^2)+16*exp(-4*(1-2*x)^2)*(1-2*x)^2
   8*cos(8*x)-8*sin(8*x)+1/(4/3+x)
 }
+```
 
+Generate random sample and grid points.
+```R
 set.seed(1)
 n = 500 # number of data points
 x = sort(runif(n, 0, 1)) # random design
