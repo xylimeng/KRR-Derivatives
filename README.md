@@ -1,6 +1,7 @@
 # KRR-Derivatives
 Using Plug-in Kernel ridge regression estimators to estimate function derivatives 
 
+```R
 library(Rcpp)
 library(RandomFieldsUtils)
 library(latex2exp)
@@ -47,4 +48,5 @@ lines(x_new, lpest2$beta1, lty = 2, lwd = 5, col = "blue")
 library(pspline)
 ps_y = as.vector(predict(sm.spline(x, y, norder = 2), x_new, 1))
 lines(x_new, ps_y, lty = 2, lwd = 5, col = "yellow")
+```
 
