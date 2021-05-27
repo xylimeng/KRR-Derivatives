@@ -36,7 +36,10 @@ n_new = 100 # number of grid points
 x_new = seq(0, 1,, n_new) # grid points
 f0_new = sapply(x_new, f0) # true value at grid points
 f0_new_prime = sapply(x_new, f0_prime) # true derivative at grid points
+```
 
+Plot the estimation of derivatives. True derivative (full line), KRR with Sobolev kernel (green dashed line) and KRR with Mat\'ern kernel (red dashed line), locpol (blue long dash), spline (yellow long dash).
+```R
 plot(x_new, f0_new_prime, type = "l", lwd = 5, xlab = "x", ylab = TeX("f'_{02}(x),\\hat{f}'_{02}(x)"), ylim = c(-15,15))
 
 get_GPR("Sobolev")
@@ -53,4 +56,6 @@ library(pspline)
 ps_y = as.vector(predict(sm.spline(x, y, norder = 2), x_new, 1))
 lines(x_new, ps_y, lty = 2, lwd = 5, col = "yellow")
 ```
+
+![GitHub Logo](/Rplot.png)
 
